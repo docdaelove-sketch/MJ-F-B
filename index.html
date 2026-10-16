@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부산 명지 3237-9 | F&B 플래그십 랜드마크 신축 장기임대 제안서</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
+
+    /* Ocean & Luxury Gold Palette for F&B Flagship */
+    .bg-ocean-dark { background-color: #0a192f; }
+    .bg-ocean-deep { background-color: #0f2942; }
+    .text-gold { color: #d4af37; }
+    .bg-gold { background-color: #d4af37; }
+    .border-gold { border-color: #d4af37; }
+
+    .gradient-gold {
+      background: linear-gradient(90deg, #d4af37 0%, #fef08a 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Web PPT Mode Styling */
+    body.ppt-mode {
+      overflow: hidden;
+      background-color: #f8fafc;
+    }
+    body.ppt-mode header,
+    body.ppt-mode footer {
+      display: none !important;
+    }
+    body.ppt-mode main {
+      max-width: 100% !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    body.ppt-mode .slide-section {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 2.5rem 4rem 5.5rem 4rem !important;
+      margin: 0 !important;
+      border: none !important;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8fafc;
+    }
+    body.ppt-mode #slide-1.slide-section {
+      background-color: #0a192f;
+    }
+    body.ppt-mode .slide-section.active-slide {
+      display: flex;
+      flex-direction: column;
+      animation: fadeInSlide 0.35s ease-out;
+    }
+    @keyframes fadeInSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .custom-scrollbar::-webkit-scrollbar { height: 6px; width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-amber-500 selection:text-white">
+
+  <!-- Sticky Navigation Header (Web Mode) -->
+  <header style="background-color: #0a192f;" class="bg-[#0a192f] text-white sticky top-0 z-50 border-b border-amber-500/40 shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="bg-gradient-to-r from-amber-500 to-yellow-300 text-slate-950 font-black text-xs sm:text-sm px-3 py-1.5 rounded shadow">
+          F&B FLAGSHIP LEASE
+        </span>
+        <div>
+          <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white">부산 명지 오션뷰 복합 F&B 타워</h1>
+          <p class="text-xs text-amber-300 font-semibold">11월 말 모델하우스 철거 확정 · 35~40억 신축 투자 · 10년+ 장기임대</p>
+        </div>
+      </div>
+
+      <nav class="hidden xl:flex items-center gap-5 text-sm font-bold text-slate-100">
+        <a href="#slide-1" class="hover:text-amber-400 transition">프로젝트 개요</a>
+        <a href="#slide-2" class="hover:text-amber-400 transition">프랜차이즈 5대 핵심강점</a>
+        <a href="#slide-3" class="hover:text-amber-400 transition">층별 MD & 90대 주차</a>
+        <a href="#slide-4" class="hover:text-amber-400 transition">오션뷰 & 수변산책로</a>
+        <a href="#slide-5" class="hover:text-amber-400 transition">11.3만 배후상권</a>
+        <a href="#slide-6" class="hover:text-amber-400 transition">임대차 프로세스 & 문의</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5 ml-auto xl:ml-0">
+        <button onclick="togglePPTMode(true)" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm px-4 py-2 rounded-lg shadow-lg transition transform hover:scale-105">
+          <span>🖥️ 웹 파워포인트(발표 모드) 실행</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Floating PPT Controller (Only visible in PPT Mode) -->
+  <div id="ppt-controls" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[100] hidden items-center gap-3 bg-slate-950/90 text-white px-6 py-3 rounded-full border border-amber-500/50 shadow-2xl backdrop-blur-md">
+    <button onclick="changeSlide(-1)" class="px-3 py-1.5 rounded-full bg-slate-800 hover:bg-slate-700 text-xs sm:text-sm font-bold transition">◀ 이전 슬라이드</button>
+    <span id="slide-indicator" class="text-xs sm:text-sm font-black text-amber-400 px-3 tracking-widest">SLIDE 1 / 6</span>
+    <button onclick="changeSlide(1)" class="px-3 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs sm:text-sm font-black transition">다음 슬라이드 ▶</button>
+    <div class="h-4 w-[1px] bg-slate-700 mx-1"></div>
+    <button onclick="togglePPTMode(false)" class="px-3 py-1.5 rounded-full bg-red-600/90 hover:bg-red-500 text-white text-xs font-bold transition">✕ 웹 스크롤 모드로 복귀 (ESC)</button>
+  </div>
+
+  <!-- SLIDE 1: Hero & Project Pivot Overview -->
+  <section id="slide-1" class="slide-section relative bg-ocean-dark text-white pt-14 pb-20 overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-900/40 via-[#0a192f] to-[#040d1a] z-0"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
+        
+        <!-- Left Copy -->
+        <div class="lg:w-7/12 space-y-6 text-left">
+          <div class="inline-flex flex-wrap items-center gap-2 bg-amber-500/10 border border-amber-400/40 text-amber-300 text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full">
+            <span>📍 부산 강서구 명지동 3237-9 (일반상업지역 593평)</span>
+            <span class="text-white/40">|</span>
+            <span class="text-emerald-300">대우건설 모델하우스 11월 말 철거 확정</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.18] tracking-tight">
+            명지 영구 오션뷰 1열,<br>
+            <span class="gradient-gold">메가 F&B 신축 통임대</span>
+          </h2>
+
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-normal max-w-2xl">
+            1군 건설사(대우건설)가 집객력을 검증한 <strong>593평 3면 코너 대지</strong>입니다. 11월 말 철거 후 <strong>건축주 35~40억 원 직접 투자로 지상 5층 외형·골조를 신축</strong>하며, 대한민국 대표 F&B 브랜드를 위한 <strong>10년 이상 장기 단독 통임대(실내 인테리어 임차인 직접 시공)</strong> 파트너를 모십니다.
+          </p>
+
+          <!-- Key Metrics Strip -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+              <span class="text-xs text-slate-300 block">신축 건축 투자비</span>
+              <strong class="text-xl sm:text-2xl font-black text-amber-400">35~40억 원</strong>
+              <span class="text-[11px] text-slate-200 block mt-0.5">외형·골조 임대인 시공</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+              <span class="text-xs text-slate-300 block">압도적 주차 대수</span>
+              <strong class="text-xl sm:text-2xl font-black text-sky-400">약 90대</strong>
+              <span class="text-[11px] text-slate-200 block mt-0.5">1~3층 대형 자주식 주차</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+              <span class="text-xs text-slate-300 block">전면 조망 & 동선</span>
+              <strong class="text-xl sm:text-2xl font-black text-emerald-400">영구 오션뷰</strong>
+              <span class="text-[11px] text-slate-200 block mt-0.5">정문 앞 수변산책로 직결</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+              <span class="text-xs text-slate-300 block">임대차 방식</span>
+              <strong class="text-xl sm:text-2xl font-black text-white">10년+ 통임대</strong>
+              <span class="text-[11px] text-slate-200 block mt-0.5">실내 인테리어 임차인 시공</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Card -->
+        <div class="lg:w-5/12 w-full">
+          <div class="bg-slate-900/95 border-2 border-amber-500/60 rounded-3xl overflow-hidden shadow-2xl">
+            <div class="relative group bg-slate-950">
+              <!-- 
+                1순위: 로컬/깃허브의 building image_2.png 또는 building image.png 로드
+                2순위: 미리보기 샌드박스 환경에서 로컬 파일 접근이 막힐 경우, 예전 모델하우스 사진 대신 5층 F&B 조감도 전용 그래픽 표시 및 즉시 파일 선택 지원
+              -->
+              <img 
+                id="hero-building-img"
+                src="./building%20image_2.png" 
+                alt="명지 5층 F&B 신축 랜드마크 조감도 (BAKERY & DESSERT CAFE / FINE DINING)" 
+                class="w-full h-64 sm:h-72 object-cover transition duration-300"
+              >
+              <div class="absolute top-3 left-3 bg-slate-950/90 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-400/40 shadow">
+                지상 5층 신축 F&B 랜드마크 조감도 (1~3F 주차 / 4~5F 매장)
+              </div>
+
+              <!-- 미리보기 창에서도 내 컴퓨터의 조감도 사진을 즉시 렌더링할 수 있는 원클릭 버튼 -->
+              <label for="upload-render-input" class=" cursor-pointer absolute top-3 right-3 bg-amber-400 hover:bg-amber-300 text-slate-950 text-[11px] font-black px-2.5 py-1.5 rounded-lg shadow-lg transition flex items-center gap-1">
+                <span>📷 조감도 원본 사진 불러오기</span>
+                <input type="file" id="upload-render-input" accept="image/*" class="hidden" onchange="previewUploadedRender(event)">
+              </label>
+
+              <div class="absolute bottom-3 right-3 bg-emerald-600/95 text-white text-xs font-black px-3 py-1 rounded-md shadow">
+                정문 횡단보도 앞 = 오션시티 산책로 & 바다
+              </div>
+            </div>
+            <div class="p-6 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">PROJECT TIMELINE</span>
+                <span class="text-xs text-slate-300">선점 파트너사 맞춤 골조 반영</span>
+              </div>
+              <div class="space-y-2.5 text-xs sm:text-sm">
+                <div class="flex items-center justify-between bg-slate-800/80 px-3.5 py-2 rounded-lg">
+                  <span class="text-slate-200 font-medium">1. 대우건설 모델하우스 철거 완료</span>
+                  <strong class="text-amber-300">11월 말 확정</strong>
+                </div>
+                <div class="flex items-center justify-between bg-slate-800/80 px-3.5 py-2 rounded-lg">
+                  <span class="text-slate-200 font-medium">2. 외형·골조 건축주 신축 (35~40억 투입)</span>
+                  <strong class="text-sky-300">단독 통임대 선착순 협의</strong>
+                </div>
+                <div class="flex items-center justify-between bg-slate-800/80 px-3.5 py-2 rounded-lg">
+                  <span class="text-slate-200 font-medium">3. 임차인 실내 인테리어 시공 및 그랜드 오픈</span>
+                  <strong class="text-emerald-300">10년 이상 장기 운영</strong>
+                </div>
+              </div>
+              <p class="text-[11px] text-slate-400 text-right">※ 위 이미지는 5층 신축 건물 이해를 돕기 위한 예상 조감도입니다.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-28">
+
+    <!-- SLIDE 2: Why Top F&B Franchises Must Choose This Site -->
+    <section id="slide-2" class="slide-section space-y-10 bg-[#f8fafc] text-slate-900">
+      <div class="text-center space-y-3 max-w-5xl mx-auto">
+        <span class="text-amber-800 bg-amber-100 border border-amber-300 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+          Why Top F&B Brands Choose Here
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight sm:whitespace-nowrap">
+          메가 F&B 프랜차이즈가 열광하는 5대 핵심 입지 조건
+        </h2>
+        <p class="text-slate-600 text-base sm:text-lg">
+          대형 F&B 매장의 매출 상한선을 결정짓는 <strong>주차 회전율, 파노라마 뷰, 산책로 동선, 배후 세대수, 단독 통임대 안정성</strong>을 모두 해결했습니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 w-full">
+        <!-- Point 1 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-sky-500/30 shadow-lg hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center text-2xl font-black mb-4">🚗</div>
+            <span class="text-xs font-extrabold text-sky-700 bg-sky-50 px-2.5 py-1 rounded">외식업 매출 1순위 요건</span>
+            <h3 class="text-xl font-black text-slate-900 mt-2 mb-2">90대 규모 자주식 주차장 (1~3층)</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              주말 피크타임 주차 대란으로 고객이 이탈하는 현상을 원천 차단합니다. 대형 레스토랑 및 베이커리 카페의 동시 만석 회전율을 완벽히 뒷받침합니다.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-sky-800">
+            ✓ 전 층 자주식 광폭 주차 동선
+          </div>
+        </div>
+
+        <!-- Point 2 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-emerald-500/30 shadow-lg hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl font-black mb-4">🌊</div>
+            <span class="text-xs font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">대체불가 조망 프리미엄</span>
+            <h3 class="text-xl font-black text-slate-900 mt-2 mb-2">남동향 영구 오션뷰 & 산책로 직결</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              정문 앞 길만 건너면 즉시 <strong>명지오션시티 수변산책로</strong>와 남해 바다가 펼쳐집니다. 앞을 가릴 건물이 영구히 없어 4~5층 파노라마 오션뷰가 보장됩니다.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-800">
+            ✓ 식사 후 산책로 유입·역유입 시너지
+          </div>
+        </div>
+
+        <!-- Point 3 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-amber-500/30 shadow-lg hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl font-black mb-4">🏗️</div>
+            <span class="text-xs font-extrabold text-amber-800 bg-amber-50 px-2.5 py-1 rounded">명확한 시공 분담 구조</span>
+            <h3 class="text-xl font-black text-slate-900 mt-2 mb-2">35~40억 외형·골조 건축주 직접 시공</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              임대인이 35~40억 원을 투입해 <strong>5층 건물 외형과 골조를 완공</strong>해 드립니다. 임차인은 브랜드 아이덴티티에 맞춰 <strong>실내 인테리어만 직접 시공</strong>하여 입점하시면 됩니다.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-amber-800">
+            ✓ 외관·골조(임대인) / 내부 인테리어(임차인)
+          </div>
+        </div>
+
+        <!-- Point 4 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-purple-500/30 shadow-lg hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl font-black mb-4">🏙️</div>
+            <span class="text-xs font-extrabold text-purple-700 bg-purple-50 px-2.5 py-1 rounded">365일 공백 없는 상권</span>
+            <h3 class="text-xl font-black text-slate-900 mt-2 mb-2">11.3만 세대 배후 & 3면 코너 간판 효과</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              명지국제신도시·에코델타시티·오션시티 11.3만 세대의 탄탄한 평일 가족 외식 수요와 주말 광역 나들이 수요를 동시에 흡수하는 사거리 3면 코너 자리입니다.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-purple-800">
+            ✓ 강서선 트램 종점(예정) 초인접 수혜
+          </div>
+        </div>
+
+        <!-- Point 5 -->
+        <div class="bg-white rounded-3xl p-6 border-2 border-rose-500/30 shadow-lg hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center text-2xl font-black mb-4">🤝</div>
+            <span class="text-xs font-extrabold text-rose-700 bg-rose-50 px-2.5 py-1 rounded">독점적 사옥형 플래그십</span>
+            <h3 class="text-xl font-black text-slate-900 mt-2 mb-2">10년 이상 장기 단독 통임대 보장</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">
+              층별 쪼개기 임대가 아닌 <strong>건물 전체 단독 통임대(Master Lease)</strong> 방식으로 진행됩니다. 임차인의 실내 인테리어 투자비를 안정적으로 회수하도록 <strong>10년 이상 장기 계약</strong>을 보장합니다.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-rose-800">
+            ✓ 100% 단독 통임대 전용 랜드마크
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: Interactive 5-Story Building Floor Plan & Flexible MD Simulation -->
+    <section id="slide-3" class="slide-section space-y-8 border-t border-slate-200 pt-16 bg-[#f8fafc] text-slate-900">
+      <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-6 w-full">
+        <div class="space-y-2">
+          <span class="text-sky-800 bg-sky-100 border border-sky-300 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+            35~40억 외형·골조 신축 · 100% 단독 통임대
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900">
+            층별 공간 구성안 (1~3F 90대 주차 + 4~5F 오션뷰 F&B)
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base">
+            외형과 골조는 임대인이 신축하고 <strong>실내 인테리어는 통임대 임차인이 브랜드 컨셉에 맞게 직접 시공</strong>합니다. <span class="text-amber-700 font-bold">(※ 층별 활용은 유동적 변경 가능)</span>
+          </p>
+        </div>
+
+        <!-- Single-Row Option Selector Tabs -->
+        <div class="grid grid-cols-3 gap-1.5 bg-slate-200 p-1.5 rounded-2xl w-full xl:w-auto xl:min-w-[540px] shrink-0 shadow-inner">
+          <button onclick="switchMDPlan('standard')" id="btn-md-standard" class="px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-ocean-dark text-amber-300 shadow-md transition text-center whitespace-nowrap">
+            권장안 A · 식당+카페 복합
+          </button>
+          <button onclick="switchMDPlan('single')" id="btn-md-single" class="px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-white/80 transition text-center whitespace-nowrap">
+            대안 B · 단일 브랜드 전용관
+          </button>
+          <button onclick="switchMDPlan('complex')" id="btn-md-complex" class="px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-white/80 transition text-center whitespace-nowrap">
+            대안 C · 1F 쇼룸+상부 다이닝
+          </button>
+        </div>
+      </div>
+
+      <!-- Building Stacking Interactive Diagram -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full">
+        
+        <!-- Left: Visual Floor Stack -->
+        <div class="lg:col-span-7 bg-ocean-dark text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-700 flex flex-col justify-between space-y-3">
+          <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-1">
+            <div>
+              <h3 class="text-lg sm:text-xl font-black text-amber-400" id="plan-title">권장안 A: 4F 유명 식당 + 5F 베이커리 카페 (단독 통임대)</h3>
+              <p class="text-xs text-slate-300" id="plan-subtitle">한 프랜차이즈 그룹이 4층 외식 브랜드와 5층 디저트 카페를 수직 결합해 운영하는 모델</p>
+            </div>
+            <span class="bg-amber-500/20 border border-amber-400 text-amber-300 text-xs font-bold px-3 py-1 rounded-full shrink-0">5층 전체 통임대</span>
+          </div>
+
+          <!-- Rooftop -->
+          <div class="bg-gradient-to-r from-sky-900/80 to-indigo-900/80 border border-sky-400/40 rounded-2xl p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span class="bg-sky-400 text-slate-950 font-black text-xs px-2.5 py-1 rounded">ROOFTOP</span>
+              <div>
+                <h4 class="font-bold text-sm sm:text-base text-white" id="floor-roof-title">오션뷰 루프탑 포토존 & 야외 스카이 테라스 (선택 연계)</h4>
+                <p class="text-xs text-sky-200" id="floor-roof-desc">5층 카페와 내부 계단 연계 가능 · 남해 일출/노을 및 수변공원 파노라마 조망</p>
+              </div>
+            </div>
+            <span class="text-xs font-bold text-sky-300 hidden sm:inline shrink-0">SNS 바이럴 특화</span>
+          </div>
+
+          <!-- 5F -->
+          <div class="bg-gradient-to-r from-amber-600/30 to-yellow-600/20 border-2 border-amber-400 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-lg">
+            <div class="flex items-start sm:items-center gap-4">
+              <span class="bg-amber-400 text-slate-950 font-black text-base px-3.5 py-2 rounded-xl">5F</span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-black text-lg sm:text-xl text-amber-300" id="floor-5f-title">대형 베이커리 & 스페셜티 디저트 카페</h4>
+                  <span class="bg-amber-400/20 text-amber-200 text-[11px] font-bold px-2 py-0.5 rounded">최상층 파노라마 오션뷰</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 mt-1" id="floor-5f-desc">통유리 커튼월 바다 조망 · 임차인 맞춤형 인테리어 시공 · 수변산책로 테이크아웃/홀 고객 동시 흡수</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-amber-200 font-bold block">추천 공간 구성</span>
+              <span class="text-xs text-white font-semibold" id="floor-5f-tag">명장 베이커리 / 대형 로스터리</span>
+            </div>
+          </div>
+
+          <!-- 4F -->
+          <div class="bg-gradient-to-r from-emerald-700/30 to-teal-700/20 border-2 border-emerald-400 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 shadow-lg">
+            <div class="flex items-start sm:items-center gap-4">
+              <span class="bg-emerald-400 text-slate-950 font-black text-base px-3.5 py-2 rounded-xl">4F</span>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-black text-lg sm:text-xl text-emerald-300" id="floor-4f-title">유명 요식업 프랜차이즈 메인 다이닝</h4>
+                  <span class="bg-emerald-400/20 text-emerald-200 text-[11px] font-bold px-2 py-0.5 rounded">가로수 위 탁 트인 바다 조망</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-200 mt-1" id="floor-4f-desc">가로수 간섭 없이 남해 바다가 한눈에 들어오는 로열층 · 가족 외식 및 비즈니스 프라이빗 룸(PDR) 인테리어 최적</p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-xs text-emerald-200 font-bold block">추천 공간 구성</span>
+              <span class="text-xs text-white font-semibold" id="floor-4f-tag">프리미엄 다이닝 / 씨푸드 / 한우·갈비</span>
+            </div>
+          </div>
+
+          <!-- 1F ~ 3F Parking -->
+          <div class="bg-slate-800/90 border-2 border-sky-400/60 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div class="flex items-start sm:items-center gap-4">
+              <div class="bg-sky-500 text-slate-950 font-black text-base px-3 py-3.5 rounded-xl text-center leading-tight">
+                3F<br>2F<br>1F
+              </div>
+              <div>
+                <div class="flex items-center gap-2">
+                  <h4 class="font-black text-lg sm:text-xl text-sky-300" id="floor-13f-title">약 90대 수용 대형 자주식 주차타워 & 1층 정문 웰컴 로비</h4>
+                  <span class="bg-sky-500/20 text-sky-200 text-[11px] font-bold px-2 py-0.5 rounded">초보운전·SUV 광폭 주차</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 mt-1" id="floor-13f-desc">
+                  비·바람·폭염 걱정 없는 실내 자주식 주차장 약 90대 완비 · 주차 후 전용 대형 엘리베이터로 4F/5F 직행 · 1층 정문에서 횡단보도 건너 수변공원 직결
+                </p>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="text-2xl font-black text-sky-400 block">90대+</span>
+              <span class="text-[11px] text-slate-300">단독 전용 주차</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Why 1-3F Parking + 4-5F Dining is Genius for F&B Revenue -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-lg space-y-5 flex-1">
+            <div class="inline-block bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-full">
+              건축 & 수익성 시뮬레이션 인사이트
+            </div>
+            <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+              왜 1~3층 주차장 + 4~5층 매장 구조가 프랜차이즈 매출을 극대화하는가?
+            </h3>
+
+            <div class="space-y-4 text-sm">
+              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80">
+                <strong class="text-slate-900 font-bold block mb-1">1. 1~2층 가로수·차량 시야 간섭 완벽 돌파 (진정한 오션뷰)</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  해안가 저층(1~2층) 매장은 방풍림 가로수와 도로 차량에 가려 바다가 잘 보이지 않습니다. 1~3층을 주차장으로 올림으로써 <strong>4층과 5층 모든 테이블에서 방해받지 않는 압도적 바다 조망</strong>이 완성됩니다.
+                </p>
+              </div>
+
+              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-200/80">
+                <strong class="text-slate-900 font-bold block mb-1">2. 외형·골조(임대인) + 실내 인테리어(임차인) 역할 분담</strong>
+                <p class="text-slate-600 leading-relaxed">
+                  임대인이 <strong>35~40억 원을 투자하여 웅장한 5층 외관 파사드와 골조, 주차장을 완공</strong>하며, 임차인은 실내 인테리어와 주방 설비만 브랜드 매뉴얼대로 직접 시공하여 초기 건축 리스크를 덜고 완성도를 높입니다.
+                </p>
+              </div>
+
+              <div class="p-4 bg-amber-50/70 rounded-2xl border border-amber-200">
+                <strong class="text-amber-950 font-bold block mb-1">3. 식사(4F) → 커피·베이커리(5F) → 수변산책로 원스톱 코스화</strong>
+                <p class="text-amber-900 leading-relaxed">
+                  고객이 차를 한 번 주차(90대)하면 4층에서 외식을 마친 뒤 차를 뺄 필요 없이 5층 베이커리 카페와 정문 앞 수변산책로까지 즐기게 되어 <strong>객단가와 체류시간이 2배 이상 상승</strong>합니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SLIDE 4: Ocean View & Ocean City Promenade Synergy -->
+    <section id="slide-4" class="slide-section space-y-10 border-t border-slate-200 pt-16 bg-[#f8fafc] text-slate-900">
+      <div class="text-center space-y-3 max-w-6xl mx-auto">
+        <span class="text-emerald-800 bg-emerald-100 border border-emerald-300 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+          Unrivaled Oceanfront & Promenade
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight sm:whitespace-nowrap">
+          정문 앞 ‘오션시티 수변산책로’ 직결과 영구 바다 조망
+        </h2>
+        <p class="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+          <span class="block sm:whitespace-nowrap">단순히 멀리서 바다가 보이는 건물이 아닙니다.</span>
+          <span class="block sm:whitespace-nowrap">매장 정문에서 횡단보도 하나만 건너면 명지오션시티 최고의 힐링 명소인 해안 수변공원 산책로와 즉시 연결됩니다.</span>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+        <!-- Left: Promenade Synergy Flow (High Contrast Fix) -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="bg-[#0a192f] text-white p-7 sm:p-9 rounded-3xl shadow-2xl border-2 border-amber-500/50 space-y-6">
+            <h3 class="text-xl sm:text-2xl font-black text-amber-300 leading-snug">
+              고객의 발걸음이 매출로 직결되는<br class="sm:hidden"> ‘산책로 골든 서클(Golden Circle)’
+            </h3>
+            <p class="text-slate-100 text-sm sm:text-base leading-relaxed font-normal">
+              명지오션시티(2.9만 세대)와 국제신도시 주민들이 매일 아침·저녁으로 조깅, 반려견 산책, 가족 나들이를 즐기는 핵심 해안 산책로가 본 건물 정문 바로 맞은편에 위치합니다.
+            </p>
+
+            <!-- Flow Steps with Crystal-Clear Contrast -->
+            <div class="space-y-3.5">
+              <div class="flex items-center gap-4 bg-slate-800/95 p-4 rounded-2xl border border-amber-400/40 shadow">
+                <div class="w-11 h-11 rounded-xl bg-amber-400 text-slate-950 font-black text-base flex items-center justify-center shrink-0">01</div>
+                <div>
+                  <strong class="text-amber-300 text-sm sm:text-base font-extrabold block">차량 방문객 (광역 드라이브 & 외식 수요)</strong>
+                  <span class="text-xs sm:text-sm text-white font-medium">1~3층 90대 주차장 안심 주차 → 4층 유명 식당 식사 → 5층 오션뷰 카페 이용</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 bg-slate-800/95 p-4 rounded-2xl border border-emerald-400/40 shadow">
+                <div class="w-11 h-11 rounded-xl bg-emerald-400 text-slate-950 font-black text-base flex items-center justify-center shrink-0">02</div>
+                <div>
+                  <strong class="text-emerald-300 text-sm sm:text-base font-extrabold block">정문 앞 횡단보도 직결 → 오션시티 수변산책로 이동</strong>
+                  <span class="text-xs sm:text-sm text-white font-medium">식사 후 테이크아웃 커피·베이커리를 들고 해안 산책로 산책 (재방문율 극대화)</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 bg-slate-800/95 p-4 rounded-2xl border border-sky-400/40 shadow">
+                <div class="w-11 h-11 rounded-xl bg-sky-400 text-slate-950 font-black text-base flex items-center justify-center shrink-0">03</div>
+                <div>
+                  <strong class="text-sky-300 text-sm sm:text-base font-extrabold block">산책로 보행 유동인구 역유입 (Walk-in 수요)</strong>
+                  <span class="text-xs sm:text-sm text-white font-medium">수변공원을 산책하던 주민 및 나들이객이 3면 코너 랜드마크 외관을 보고 매장 유입</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map & Visual Proof -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="bg-white p-4 rounded-3xl border border-slate-200 shadow-xl">
+            <img src="./MJ%20util%20map.jpg" onerror="this.src='https://docdaelove-sketch.github.io/Myongji-land-sales/MJ%20util%20map.jpg'" alt="명지동 3237-9 수변공원 및 배후세대 지도" class="w-full h-auto rounded-2xl object-cover">
+            <div class="p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+              <div>
+                <strong class="text-slate-900 font-black text-base block">📍 명지동 3237-9 : 수변공원 & 남해 오션뷰 최전선</strong>
+                <span class="text-xs text-slate-600">을숙도대교(사하·원도심 유입)와 신호대교(창원·김해 유입)가 만나는 해안 코너 관문</span>
+              </div>
+              <a href="https://www.google.com/maps/search/?api=1&query=부산광역시+강서구+명지동+3237-9" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-ocean-dark hover:bg-slate-800 text-amber-300 text-xs font-bold px-4 py-2.5 rounded-xl transition">
+                구글 지도 위치 확인 ↗
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: 113,000 Households + 4 Mega Anchor Infrastructures & Analytics -->
+    <section id="slide-5" class="slide-section space-y-10 border-t border-slate-200 pt-16 bg-[#f8fafc] text-slate-900">
+      <div class="text-center space-y-3 max-w-6xl mx-auto">
+        <span class="text-purple-800 bg-purple-100 border border-purple-300 font-black text-xs px-3.5 py-1 rounded-full uppercase tracking-wider">
+          Commercial Catchment & Mega Infra
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight sm:whitespace-nowrap">
+          365일 매출을 견인하는 ‘11.3만 세대 배후와 4대 메가 인프라’
+        </h2>
+        <p class="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+          <span class="block sm:whitespace-nowrap">외곽 관광지 카페·식당의 고질적 약점인 ‘평일 매출 공백’이 없습니다.</span>
+          <span class="block sm:whitespace-nowrap">부산에서 가장 젊고 구매력 높은 신도시 주거벨트와 4대 대형 호재가 365일 탄탄한 수요를 공급합니다.</span>
+        </p>
+      </div>
+
+      <!-- 4 Mega Infrastructures Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-md">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-3xl">🏥</span>
+            <span class="bg-teal-100 text-teal-800 text-xs font-black px-2.5 py-1 rounded-full">차로 3분</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900 mb-1">명지 부민병원 (500병상)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            서부산 최대 종합병원 의료진·임직원 회식 수요 및 내원객·문병객의 고급 식사/베이커리 선물 수요 상시 발생.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-md">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-3xl">🎓</span>
+            <span class="bg-rose-100 text-rose-800 text-xs font-black px-2.5 py-1 rounded-full">차로 5분</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900 mb-1">영국 로얄러셀스쿨 & 학군</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            명지국제신도시 고소득 학부모들의 평일 낮 브런치·베이커리 모임 및 주말 가족 외식 수요의 핵심 집결지.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-md">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-3xl">🛍️</span>
+            <span class="bg-indigo-100 text-indigo-800 text-xs font-black px-2.5 py-1 rounded-full">차로 10분</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900 mb-1">더 현대 부산 (조성 예정)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            부산·경남 광역 쇼핑객이 몰려드는 길목으로, 백화점 내 복잡한 식당가 대신 여유로운 90대 주차 오션뷰 매장으로 유입.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-md">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-3xl">✈️</span>
+            <span class="bg-amber-100 text-amber-900 text-xs font-black px-2.5 py-1 rounded-full">차로 15분</span>
+          </div>
+          <h3 class="text-lg font-black text-slate-900 mb-1">가덕도 신공항 & 강서선 트램</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            트램 종점(예정) 역세권 유동인구와 향후 가덕도 신공항 개항에 따른 국내외 관광객의 필수 해안 미식 코스화.
+          </p>
+        </div>
+      </div>
+
+      <!-- Charts Row: Parking Competitiveness & Catchment Growth -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
+        <!-- Chart A: Parking & Seat Capacity Comparison -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-sky-700 bg-sky-50 px-2.5 py-1 rounded">PARKING ADVANTAGE</span>
+              <h4 class="text-lg sm:text-xl font-black text-slate-900 mt-1">일반 상가 대비 자주식 주차 대수 비교</h4>
+            </div>
+            <span class="text-xs font-black text-slate-500">피크타임 회전율의 핵심</span>
+          </div>
+          <div class="relative h-64 w-full">
+            <canvas id="chartParkingCompare"></canvas>
+          </div>
+          <p class="text-xs text-slate-500">
+            ※ 일반 근린상가(법정주차 8~15대)와 달리 <strong>약 90대 단독 자주식 주차장</strong>을 확보하여 대형 프랜차이즈 직영점 출점 기준을 완벽히 충족합니다.
+          </p>
+        </div>
+
+        <!-- Chart B: Land Value & Commercial Growth (10-Year Official Trend) -->
+        <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded">COMMERCIAL GROWTH</span>
+              <h4 class="text-lg sm:text-xl font-black text-slate-900 mt-1">명지 권역 상권 가치 상승 추이 (10년 누적 +52.8%)</h4>
+            </div>
+            <span class="text-xs font-black text-rose-600">부산 평균 대비 +10.3%p 초과</span>
+          </div>
+          <div class="relative h-64 w-full">
+            <canvas id="chartCommercialGrowth"></canvas>
+          </div>
+          <p class="text-xs text-slate-500">
+            ※ 10년 이상 장기 통임대 계약 시, 시간이 지날수록 배후 인구와 상권 가치가 우상향하여 매장의 브랜드 가치와 매출이 함께 성장합니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: Property Specs, BTS Timeline & Direct Contact -->
+    <section id="slide-6" class="slide-section space-y-10 border-t border-slate-200 pt-16 bg-[#f8fafc] text-slate-900">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full">
+        
+        <!-- Left: Detailed Building & Lease Spec Table -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl flex flex-col justify-between space-y-6">
+          <div>
+            <span class="text-xs font-black text-amber-900 bg-amber-100 border border-amber-300 px-3 py-1 rounded-full uppercase">Lease & Building Specifications</span>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3">
+              신축 건축 개요 및 단독 통임대 조건 요약
+            </h2>
+            <p class="text-slate-600 text-sm mt-1">
+              11월 말 모델하우스 철거 직후 신축 공사에 돌입하며, 외형·골조는 임대인이 시공하고 실내 인테리어는 임차인이 직접 시공합니다.
+            </p>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <tbody class="divide-y divide-slate-200">
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800 w-1/3 rounded-tl-xl">소재지</th>
+                  <td class="py-3.5 px-4 font-bold text-slate-900">부산광역시 강서구 명지동 3237-9 (3면 코너 필지)</td>
+                </tr>
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800">용도지역 / 대지면적</th>
+                  <td class="py-3.5 px-4 text-slate-800">일반상업지역 / <strong>1,960.4㎡ (약 593.0평)</strong></td>
+                </tr>
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800">건축 및 인테리어 분담</th>
+                  <td class="py-3.5 px-4 text-slate-800">
+                    • <strong>임대인(건축주):</strong> 약 35~40억 원 투자 <strong>건물 외형 및 골조 신축</strong><br>
+                    • <strong>임차인(프랜차이즈):</strong> 브랜드 컨셉에 맞춘 <strong>실내 인테리어 직접 시공</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800">건축 규모 및 주차</th>
+                  <td class="py-3.5 px-4 text-slate-800"><strong>지상 5층</strong> / 자주식 주차 <strong>약 90대</strong> (1~3층 주차장 기준)</td>
+                </tr>
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800">권장 층별 용도<br><span class="text-[11px] text-amber-800 font-semibold">(유동적 변경 가능)</span></th>
+                  <td class="py-3.5 px-4 text-slate-800">
+                    • <strong>1F ~ 3F:</strong> 대형 자주식 주차장 (약 90대) 및 1F 정문 로비<br>
+                    • <strong>4F:</strong> 유명 요식업 프랜차이즈 (파노라마 오션뷰 레스토랑)<br>
+                    • <strong>5F:</strong> 대형 베이커리 & 디저트 카페 (루프탑 연계 가능)
+                  </td>
+                </tr>
+                <tr>
+                  <th class="py-3.5 px-4 bg-slate-100 font-bold text-slate-800 rounded-bl-xl">임대 기간 및 방식</th>
+                  <td class="py-3.5 px-4 font-black text-emerald-700">
+                    10년 이상 장기 임대 · 100% 건물 전체 단독 통임대 (Master Lease)
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs sm:text-sm text-amber-950 font-medium">
+            💡 <strong>유연한 공간 구성 안내:</strong> 단독 통임대 파트너사의 출점 전략에 따라 4층 식당·5층 카페 복합 운영 또는 전 층 단일 메가 브랜드 운영 등 내부 구성을 자유롭게 기획하실 수 있습니다.
+          </div>
+        </div>
+
+        <!-- Right: Contact & WeChat / Direct Inquiry Card (High Contrast Fix) -->
+        <div class="lg:col-span-5 bg-[#0a192f] text-white rounded-3xl p-8 sm:p-10 shadow-2xl border-2 border-amber-400 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-2 bg-amber-400 text-slate-950 text-xs font-black px-3.5 py-1.5 rounded-full shadow">
+              <span>📞 프랜차이즈 본사 점포개발팀 전담 창구</span>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-amber-300 leading-snug">
+              신축 설계 반영(BTS) 및<br>장기 통임대 파트너십 문의
+            </h3>
+            <p class="text-white text-sm leading-relaxed font-normal">
+              11월 말 기존 모델하우스 철거가 확정됨에 따라, 현재 신축 외형·골조 설계 단계에서 통임대 임차인의 요구사항을 반영할 수 있는 <strong class="text-amber-300">최적의 골든타임</strong>입니다. 현장 실사 및 조건 협의를 환영합니다.
+            </p>
+          </div>
+
+          <div class="my-6 space-y-4 bg-slate-900 p-6 rounded-2xl border border-amber-400/40 shadow-inner">
+            <div>
+              <span class="text-xs text-amber-300 font-bold uppercase tracking-widest block">Project Owner & Leasing Agency</span>
+              <strong class="text-2xl font-black text-white">네오하우징 주식회사</strong>
+            </div>
+
+            <div class="flex items-center gap-3 pt-2">
+              <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-lg shrink-0">📞</div>
+              <div>
+                <span class="text-xs text-amber-200 font-semibold block">직통 문의 전화 (Tel)</span>
+                <a href="tel:82-51-803-7522" class="text-lg font-black text-white hover:text-amber-300 transition">051-803-7522 <span class="text-xs font-normal text-slate-300">(+82-51-803-7522)</span></a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-lg shrink-0">✉️</div>
+              <div>
+                <span class="text-xs text-amber-200 font-semibold block">임차 의향서 및 도면 협의 (Email)</span>
+                <a href="mailto:dunhill.kim@gmail.com" class="text-base font-bold text-white hover:text-amber-300 transition">dunhill.kim@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- KakaoTalk QR & Quick Action -->
+          <div class="flex items-center gap-4 bg-white text-slate-900 p-4 rounded-2xl shadow-lg border-2 border-[#FEE500]">
+            <div class="relative group shrink-0">
+              <img 
+                id="kakao-qr-img"
+                src="./kakao_qr.png" 
+                alt="카카오톡 상담 QR 코드" 
+                class="w-24 h-24 rounded-xl border border-slate-200 object-contain bg-white p-1 shadow-sm"
+              >
+              <label for="upload-kakao-qr-input" class="cursor-pointer absolute -bottom-2 left-1/2 -translate-x-1/2 bg-[#FEE500] hover:bg-amber-300 text-[#3C1E1E] text-[10px] font-black px-2 py-0.5 rounded-full shadow border border-[#3C1E1E]/20 whitespace-nowrap transition">
+                📷 QR 변경
+                <input type="file" id="upload-kakao-qr-input" accept="image/*" class="hidden" onchange="previewUploadedKakaoQR(event)">
+              </label>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span class="text-[11px] font-black text-[#3C1E1E] bg-[#FEE500] px-2.5 py-0.5 rounded-md shadow-sm flex items-center gap-1">
+                  💬 카카오톡 1:1 오픈채팅/상담 QR
+                </span>
+                <label for="upload-kakao-qr-input" class="cursor-pointer text-[11px] font-bold text-amber-700 hover:text-amber-900 underline">
+                  [원본 QR 파일 선택]
+                </label>
+              </div>
+              <p class="text-xs font-bold text-slate-900 leading-snug">
+                카카오톡 QR 코드 스캔 또는 전화·이메일로 연락 주시면 신축 가설계 도면 및 상세 통임대 제안서를 즉시 발송해 드립니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-300 py-8 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-4 text-xs">
+      <div class="space-y-1 text-center lg:text-left overflow-x-auto max-w-full">
+        <strong class="text-amber-400 font-bold block">부산 명지 3237-9 오션뷰 F&B 플래그십 신축 장기 통임대 제안서</strong>
+        <p class="whitespace-nowrap text-slate-300">본 자료의 층별 구성 및 주차 대수(약 90대)는 인허가 및 임차 프랜차이즈 본사와의 맞춤 설계(BTS) 협의에 따라 최적화될 수 있습니다.</p>
+      </div>
+      <div class="text-center lg:text-right shrink-0">
+        <p class="whitespace-nowrap text-slate-400 font-medium">&copy; 2026 Neo Housing Co., Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Interactive Floor Plan Switcher (Slide 3)
+    const mdPlans = {
+      standard: {
+        title: "권장안 A: 4F 유명 식당 + 5F 베이커리 카페 (단독 통임대)",
+        subtitle: "한 프랜차이즈 그룹이 4층 외식 브랜드와 5층 디저트 카페를 수직 결합해 운영하는 모델",
+        roofTitle: "오션뷰 루프탑 포토존 & 야외 스카이 테라스 (선택 연계)",
+        roofDesc: "5층 카페와 내부 계단 연계 가능 · 남해 일출/노을 및 수변공원 파노라마 조망",
+        f5Title: "대형 베이커리 & 스페셜티 디저트 카페",
+        f5Desc: "통유리 커튼월 바다 조망 · 임차인 맞춤형 인테리어 시공 · 수변산책로 테이크아웃/홀 고객 동시 흡수",
+        f5Tag: "명장 베이커리 / 대형 로스터리 카페",
+        f4Title: "유명 요식업 프랜차이즈 메인 다이닝",
+        f4Desc: "가로수 간섭 없이 남해 바다가 한눈에 들어오는 로열층 · 가족 외식 및 비즈니스 프라이빗 룸(PDR) 인테리어 최적",
+        f4Tag: "프리미엄 다이닝 / 씨푸드 / 한우·갈비",
+        f13Title: "약 90대 수용 대형 자주식 주차타워 & 1층 정문 웰컴 로비",
+        f13Desc: "비·바람·폭염 걱정 없는 실내 자주식 주차장 약 90대 완비 · 주차 후 전용 대형 엘리베이터로 4F/5F 직행 · 1층 정문에서 횡단보도 건너 수변공원 직결"
+      },
+      single: {
+        title: "대안 B: 단일 메가 프랜차이즈 플래그십 전용관 (단독 통임대)",
+        subtitle: "대한민국 대표 외식 기업 또는 초대형 베이커리 그룹의 부산·경남 거점 직영 사옥형 매장",
+        roofTitle: "VIP 프라이빗 가든 & 브랜드 시그니처 루프탑 라운지",
+        roofDesc: "브랜드 상징 조형물 설치 및 VIP 고객 전용 오션뷰 리셉션 공간",
+        f5Title: "프리미엄 프라이빗 다이닝 룸(PDR) & 연회장 / 베이커리 라운지",
+        f5Desc: "가족 연회, 기업 비즈니스 미팅을 위한 오션뷰 독립 룸 및 식후 디저트 바 결합 인테리어",
+        f5Tag: "단일 브랜드 VIP관 / 디저트 라운지",
+        f4Title: "메가 프랜차이즈 본관 메인 홀 (약 250~300석 규모)",
+        f4Desc: "오픈 키친 쇼케이스 및 전 좌석 오션뷰 배치 · 임차인 직접 인테리어 시공으로 브랜드 정체성 극대화",
+        f4Tag: "단일 브랜드 메인 다이닝 홀",
+        f13Title: "약 90대 전용 자주식 주차장 + 1층 브랜드 전용 발렛/웨이팅 라운지",
+        f13Desc: "단일 브랜드 전용 90대 주차로 주말 웨이팅 고객 수용력 극대화 · 1층 정문에 브랜드 굿즈/기념품 픽업존 구성 가능"
+      },
+      complex: {
+        title: "대안 C: 1F 산책로 쇼룸 + 2~3F 주차 + 4~5F 다이닝 (단독 통임대)",
+        subtitle: "정문 앞 오션시티 산책로 보행객의 즉각적인 유입까지 독점하는 하이브리드 통임대 구성",
+        roofTitle: "오션뷰 스카이 루프탑 테라스",
+        roofDesc: "남해 바다와 낙동강 하구 노을을 동시에 조망하는 루프탑",
+        f5Title: "오션뷰 파인다이닝 또는 루프탑 브런치 & 와인 라운지",
+        f5Desc: "낮에는 브런치·베이커리, 저녁에는 오션뷰 스테이크·와인 다이닝으로 2모작 매출 구현",
+        f5Tag: "브런치 카페 / 파인다이닝",
+        f4Title: "유명 한식·일식·중식·샤브 등 대형 외식 프랜차이즈",
+        f4Desc: "11.3만 세대 배후 주거단지의 핵심 외식 수요를 흡수하는 쾌적한 대형 식당",
+        f4Tag: "대형 외식 프랜차이즈",
+        f13Title: "1F 산책로 직결 테이크아웃 베이커리 부스 + 1~3F 자주식 주차장",
+        f13Desc: "1층 전면 일부에 산책로 보행자 및 반려견 동반 고객을 위한 그랩앤고(Grab & Go) 부스 배치 + 대규모 주차 완비"
+      }
+    };
+
+    function switchMDPlan(planKey) {
+      const data = mdPlans[planKey];
+      document.getElementById('plan-title').textContent = data.title;
+      document.getElementById('plan-subtitle').textContent = data.subtitle;
+      document.getElementById('floor-roof-title').textContent = data.roofTitle;
+      document.getElementById('floor-roof-desc').textContent = data.roofDesc;
+      document.getElementById('floor-5f-title').textContent = data.f5Title;
+      document.getElementById('floor-5f-desc').textContent = data.f5Desc;
+      document.getElementById('floor-5f-tag').textContent = data.f5Tag;
+      document.getElementById('floor-4f-title').textContent = data.f4Title;
+      document.getElementById('floor-4f-desc').textContent = data.f4Desc;
+      document.getElementById('floor-4f-tag').textContent = data.f4Tag;
+      document.getElementById('floor-13f-title').textContent = data.f13Title;
+      document.getElementById('floor-13f-desc').textContent = data.f13Desc;
+
+      ['standard', 'single', 'complex'].forEach(k => {
+        const btn = document.getElementById('btn-md-' + k);
+        if (k === planKey) {
+          btn.className = "px-3 py-2.5 rounded-xl text-xs sm:text-sm font-black bg-ocean-dark text-amber-300 shadow-md transition text-center whitespace-nowrap";
+        } else {
+          btn.className = "px-3 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-700 hover:bg-white/80 transition text-center whitespace-nowrap";
+        }
+      });
+    }
+
+    // Web PowerPoint (Slide Presentation) Mode Logic
+    let isPPTMode = false;
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.slide-section');
+
+    function togglePPTMode(enable) {
+      isPPTMode = enable;
+      const controls = document.getElementById('ppt-controls');
+      if (enable) {
+        document.body.classList.add('ppt-mode');
+        controls.classList.remove('hidden');
+        controls.classList.add('flex');
+        currentSlideIndex = 0;
+        showSlide(currentSlideIndex);
+      } else {
+        document.body.classList.remove('ppt-mode');
+        controls.classList.add('hidden');
+        controls.classList.remove('flex');
+        slides.forEach(s => s.classList.remove('active-slide'));
+      }
+    }
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+      currentSlideIndex = index;
+
+      slides.forEach((slide, idx) => {
+        if (idx === currentSlideIndex) {
+          slide.classList.add('active-slide');
+          slide.scrollTop = 0;
+        } else {
+          slide.classList.remove('active-slide');
+        }
+      });
+
+      document.getElementById('slide-indicator').textContent = `SLIDE ${currentSlideIndex + 1} / ${slides.length}`;
+    }
+
+    function changeSlide(delta) {
+      showSlide(currentSlideIndex + delta);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (!isPPTMode) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        changeSlide(1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        changeSlide(-1);
+      } else if (e.key === 'Escape') {
+        togglePPTMode(false);
+      }
+    });
+
+    // 조감도 이미지 다중 경로 탐색 및 로컬 파일 즉시 미리보기 로직
+    function previewUploadedRender(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imgEl = document.getElementById('hero-building-img');
+        imgEl.src = e.target.result;
+        try {
+          localStorage.setItem('custom_myongji_render_img', e.target.result);
+        } catch (err) {
+          // 용량 초과 시 세션 내에만 유지
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    (function initHeroBuildingImage() {
+      const imgEl = document.getElementById('hero-building-img');
+      if (!imgEl) return;
+
+      // 이전에 사용자가 직접 불러온 조감도 이미지가 브라우저에 저장되어 있다면 최우선 표시
+      try {
+        const savedImg = localStorage.getItem('custom_myongji_render_img');
+        if (savedImg) {
+          imgEl.src = savedImg;
+          return;
+        }
+      } catch (e) {}
+
+      // 깃허브 배포 폴더 및 로컬 폴더 내 가능한 파일명 후보군 순차 탐색 (예전 모델하우스 사진은 절대 불러오지 않음)
+      const candidatePaths = [
+        'building image_2.png',
+        'building%20image_2.png',
+        'building image.png',
+        'building%20image.png',
+        'https://docdaelove-sketch.github.io/Myongji-land-sales/building%20image_2.png',
+        'https://docdaelove-sketch.github.io/Myongji-land-sales/building%20image.png'
+      ];
+      let tryIndex = 0;
+
+      // 샌드박스 환경에서 아직 깃허브에 새 사진이 안 올라갔을 때 보여줄 5층 신축 조감도(BAKERY & DESSERT CAFE / FINE DINING / 1~3F 주차장) 정밀 일러스트 SVG
+      const architecturalRenderSVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" width="100%" height="100%">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="60%" stop-color="#bae6fd"/>
+              <stop offset="100%" stop-color="#f0f9ff"/>
+            </linearGradient>
+            <linearGradient id="sea" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="warmGlow" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fde047" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.65"/>
+            </linearGradient>
+          </defs>
+          <!-- Sky & Distant Apartments -->
+          <rect width="800" height="300" fill="url(#sky)"/>
+          <g fill="#cbd5e1" opacity="0.85">
+            <rect x="40" y="95" width="45" height="120" rx="2"/>
+            <rect x="95" y="85" width="50" height="130" rx="2"/>
+            <rect x="160" y="90" width="48" height="125" rx="2"/>
+            <rect x="220" y="95" width="45" height="120" rx="2"/>
+            <rect x="610" y="90" width="52" height="125" rx="2"/>
+            <rect x="675" y="80" width="55" height="135" rx="2"/>
+            <rect x="740" y="95" width="45" height="120" rx="2"/>
+          </g>
+          <!-- Ground & Roads -->
+          <polygon points="0,210 800,210 800,480 0,480" fill="#475569"/>
+          <!-- Ocean & Promenade (Bottom Left) -->
+          <polygon points="0,250 380,480 0,480" fill="#86efac"/>
+          <polygon points="0,275 330,480 0,480" fill="#d9f99d"/>
+          <polygon points="0,310 250,480 0,480" fill="url(#sea)"/>
+          <!-- Promenade Path & Trees -->
+          <line x1="0" y1="265" x2="355" y2="480" stroke="#fef08a" stroke-width="8" stroke-dasharray="12,6"/>
+          <circle cx="90" cy="300" r="14" fill="#15803d"/>
+          <circle cx="150" cy="335" r="16" fill="#166534"/>
+          <circle cx="215" cy="375" r="15" fill="#15803d"/>
+          <circle cx="280" cy="415" r="17" fill="#166534"/>
+          <!-- Main 5-Story Flagship Building (3-Side Corner) -->
+          <!-- Left Concrete Wing -->
+          <polygon points="330,115 365,110 365,335 330,320" fill="#d6d3d1" stroke="#78716c" stroke-width="1.5"/>
+          <!-- Right Concrete Wing -->
+          <polygon points="560,115 595,125 595,325 560,340" fill="#a8a29e" stroke="#57534e" stroke-width="1.5"/>
+          <!-- 5F Bakery & Rooftop Terrace -->
+          <polygon points="365,110 490,105 490,165 365,165" fill="#292524"/>
+          <rect x="372" y="128" width="110" height="34" fill="url(#warmGlow)" stroke="#44403c" stroke-width="2"/>
+          <text x="427" y="122" fill="#fef08a" font-family="sans-serif" font-size="9.5" font-weight="900" text-anchor="middle">BAKERY &amp; DESSERT CAFE (5F)</text>
+          <!-- 5F Rooftop Parasols -->
+          <polygon points="490,145 565,155 565,172 490,165" fill="#78716c"/>
+          <polygon points="502,135 522,135 512,127" fill="#ffffff"/>
+          <polygon points="530,138 550,138 540,130" fill="#ffffff"/>
+          <!-- 4F Fine Dining & Premium Restaurant (Full Glass Curtainwall) -->
+          <polygon points="365,165 565,170 565,228 365,218" fill="url(#warmGlow)" stroke="#292524" stroke-width="3"/>
+          <line x1="405" y1="166" x2="405" y2="220" stroke="#292524" stroke-width="2"/>
+          <line x1="445" y1="167" x2="445" y2="222" stroke="#292524" stroke-width="2"/>
+          <line x1="485" y1="168" x2="485" y2="224" stroke="#292524" stroke-width="2"/>
+          <line x1="525" y1="169" x2="525" y2="226" stroke="#292524" stroke-width="2"/>
+          <rect x="448" y="162" width="115" height="16" fill="#292524"/>
+          <text x="505" y="173" fill="#fde047" font-family="sans-serif" font-size="9" font-weight="900" text-anchor="middle">FINE DINING · RESTAURANT (4F)</text>
+          <!-- 1F~3F 90-Car Parking Tower with Louvers & Green Wall -->
+          <polygon points="365,220 565,230 565,320 365,305" fill="#44403c" stroke="#fbbf24" stroke-width="2.5"/>
+          <!-- Green Wall Accent on 3F -->
+          <polygon points="373,227 440,231 440,256 373,252" fill="#15803d"/>
+          <!-- Louver Lines for 2F-3F Parking -->
+          <line x1="370" y1="262" x2="558" y2="272" stroke="#a8a29e" stroke-width="2"/>
+          <line x1="370" y1="272" x2="558" y2="282" stroke="#a8a29e" stroke-width="2"/>
+          <line x1="370" y1="286" x2="558" y2="296" stroke="#a8a29e" stroke-width="2"/>
+          <line x1="370" y1="296" x2="558" y2="306" stroke="#a8a29e" stroke-width="2"/>
+          <text x="498" y="250" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="900" text-anchor="middle">1F~3F 자주식 주차장 (약 90대)</text>
+          <!-- 1F Entrance & Lobby -->
+          <polygon points="365,305 565,320 565,348 365,330" fill="#fde68a" opacity="0.8" stroke="#292524" stroke-width="2"/>
+          <!-- Crosswalk to Promenade -->
+          <g fill="#f8fafc" opacity="0.9">
+            <rect x="330" y="385" width="35" height="6" transform="rotate(-20 330 385)"/>
+            <rect x="340" y="395" width="35" height="6" transform="rotate(-20 340 395)"/>
+            <rect x="350" y="405" width="35" height="6" transform="rotate(-20 350 405)"/>
+          </g>
+          <!-- Guide Banner at Bottom Left -->
+          <rect x="14" y="425" width="490" height="40" rx="8" fill="#0f172a" opacity="0.92" stroke="#fbbf24" stroke-width="1.5"/>
+          <text x="26" y="443" fill="#fde047" font-family="sans-serif" font-size="11.5" font-weight="bold">💡 우측 상단 [📷 조감도 원본 사진 불러오기] 버튼을 눌러 첨부하신 사진을 선택하시면</text>
+          <text x="26" y="458" fill="#ffffff" font-family="sans-serif" font-size="11">즉시 화면에 원본 고해상도 조감도가 고정 저장되며, 깃허브 업로드 시에도 자동 표시됩니다.</text>
+        </svg>
+      `);
+
+      imgEl.onerror = function() {
+        if (tryIndex < candidatePaths.length) {
+          imgEl.src = candidatePaths[tryIndex++];
+        } else {
+          imgEl.onerror = null;
+          imgEl.src = architecturalRenderSVG;
+        }
+      };
+
+      // 초기 로드 실행
+      imgEl.src = candidatePaths[tryIndex++];
+    })();
+
+    // 카카오톡 QR 코드 이미지 다중 경로 탐색 및 로컬 파일 즉시 미리보기/저장 로직
+    function previewUploadedKakaoQR(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const qrEl = document.getElementById('kakao-qr-img');
+        if (qrEl) qrEl.src = e.target.result;
+        try {
+          localStorage.setItem('custom_myongji_kakao_qr', e.target.result);
+        } catch (err) {
+          // 용량 초과 시 현재 세션에만 유지
+        }
+      };
+      reader.readAsDataURL(file);
+    }
+
+    (function initKakaoQRImage() {
+      const qrEl = document.getElementById('kakao-qr-img');
+      if (!qrEl) return;
+
+      // 사용자가 직접 선택한 카카오톡 QR 이미지가 브라우저에 저장되어 있다면 최우선 표시
+      try {
+        const savedQR = localStorage.getItem('custom_myongji_kakao_qr');
+        if (savedQR) {
+          qrEl.src = savedQR;
+          return;
+        }
+      } catch (e) {}
+
+      // 로컬 폴더 및 깃허브 업로드 시 자동 인식할 파일명 후보군 (예전 위챗 QR.jpg.png는 제외)
+      const qrCandidatePaths = [
+        'kakao_qr.png',
+        'kakao_qr.jpg',
+        'kakao.png',
+        'kakao.jpg',
+        'kakao%20qr.png',
+        'kakao%20qr.jpg',
+        'kakaotalk_qr.png',
+        'QR_kakao.png',
+        'https://docdaelove-sketch.github.io/Myongji-land-sales/kakao_qr.png',
+        'https://docdaelove-sketch.github.io/Myongji-land-sales/kakao.png'
+      ];
+      let qrTryIdx = 0;
+
+      // 로컬 파일 선택 전 보여줄 깔끔한 카카오톡 안내 QR 플레이스홀더 SVG
+      const kakaoQRPlaceholderSVG = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+          <rect width="200" height="200" rx="16" fill="#FEE500"/>
+          <rect x="14" y="14" width="172" height="172" rx="12" fill="#ffffff"/>
+          <!-- QR Corner Markers -->
+          <rect x="26" y="26" width="42" height="42" rx="6" fill="none" stroke="#3C1E1E" stroke-width="7"/>
+          <rect x="38" y="38" width="18" height="18" rx="2" fill="#3C1E1E"/>
+          <rect x="132" y="26" width="42" height="42" rx="6" fill="none" stroke="#3C1E1E" stroke-width="7"/>
+          <rect x="144" y="38" width="18" height="18" rx="2" fill="#3C1E1E"/>
+          <rect x="26" y="132" width="42" height="42" rx="6" fill="none" stroke="#3C1E1E" stroke-width="7"/>
+          <rect x="38" y="144" width="18" height="18" rx="2" fill="#3C1E1E"/>
+          <!-- QR Pattern Dots -->
+          <g fill="#3C1E1E" opacity="0.85">
+            <rect x="82" y="28" width="10" height="10" rx="2"/>
+            <rect x="98" y="28" width="10" height="24" rx="2"/>
+            <rect x="82" y="46" width="10" height="10" rx="2"/>
+            <rect x="28" y="82" width="22" height="10" rx="2"/>
+            <rect x="58" y="82" width="10" height="18" rx="2"/>
+            <rect x="134" y="82" width="14" height="10" rx="2"/>
+            <rect x="156" y="82" width="16" height="18" rx="2"/>
+            <rect x="132" y="112" width="18" height="10" rx="2"/>
+            <rect x="82" y="140" width="12" height="12" rx="2"/>
+            <rect x="102" y="156" width="24" height="12" rx="2"/>
+            <rect x="136" y="136" width="34" height="34" rx="6" fill="none" stroke="#3C1E1E" stroke-width="6"/>
+            <rect x="148" y="148" width="10" height="10" rx="2"/>
+          </g>
+          <!-- Center Kakao Speech Bubble Badge -->
+          <rect x="66" y="68" width="68" height="64" rx="14" fill="#FEE500" stroke="#ffffff" stroke-width="4"/>
+          <ellipse cx="100" cy="96" rx="22" ry="17" fill="#3C1E1E"/>
+          <polygon points="90,109 83,119 98,111" fill="#3C1E1E"/>
+          <text x="100" y="99" fill="#FEE500" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">TALK</text>
+        </svg>
+      `);
+
+      qrEl.onerror = function() {
+        if (qrTryIdx < qrCandidatePaths.length) {
+          qrEl.src = qrCandidatePaths[qrTryIdx++];
+        } else {
+          qrEl.onerror = null;
+          qrEl.src = kakaoQRPlaceholderSVG;
+        }
+      };
+
+      qrEl.src = qrCandidatePaths[qrTryIdx++];
+    })();
+
+    // Charts Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      // Chart 1: Parking Comparison
+      const ctxPark = document.getElementById('chartParkingCompare').getContext('2d');
+      new Chart(ctxPark, {
+        type: 'bar',
+        data: {
+          labels: ['일반 해안가 근린상가', '도심 프랜차이즈 매장', '명지 3237-9 신축 (1~3F 주차)'],
+          datasets: [{
+            label: '동시 주차 가능 대수 (대)',
+            data: [12, 30, 90],
+            backgroundColor: ['#94a3b8', '#64748b', '#0284c7'],
+            borderColor: ['#64748b', '#475569', '#d4af37'],
+            borderWidth: [1, 1, 3],
+            borderRadius: 10,
+            maxBarThickness: 54
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ` 동시 주차: 약 ${ctx.parsed.y}대 (회전율 극대화)`
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 105,
+              ticks: { callback: (v) => v + '대', font: { family: 'Pretendard', weight: 'bold' } }
+            },
+            x: {
+              grid: { display: false },
+              ticks: { font: { family: 'Pretendard', weight: 'bold', size: 12 } }
+            }
+          }
+        }
+      });
+
+      // Chart 2: Commercial Growth Trend (10 Years)
+      const ctxGrowth = document.getElementById('chartCommercialGrowth').getContext('2d');
+      new Chart(ctxGrowth, {
+        type: 'line',
+        data: {
+          labels: ['2016', '2018', '2020', '2022', '2024', '2026'],
+          datasets: [
+            {
+              label: '명지 권역 누적 지가·상권 상승률 (+52.8%)',
+              data: [5.3, 18.5, 28.4, 38.7, 43.3, 52.8],
+              borderColor: '#d97706',
+              backgroundColor: 'rgba(217, 119, 6, 0.12)',
+              fill: true,
+              tension: 0.35,
+              borderWidth: 3.5,
+              pointRadius: 5,
+              pointBackgroundColor: '#0a192f'
+            },
+            {
+              label: '부산시 전체 평균 (+42.5%)',
+              data: [4.2, 15.2, 24.1, 33.2, 37.1, 42.5],
+              borderColor: '#94a3b8',
+              borderDash: [5, 5],
+              fill: false,
+              tension: 0.35,
+              borderWidth: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { family: 'Pretendard', size: 11, weight: 'bold' } } }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { callback: (v) => '+' + v + '%' }
+            },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
